@@ -7,13 +7,14 @@ Rails.application.routes.draw do
    sessions: 'admins/sessions'
   }
 
-  namespace :admins do
-    resources :customers, only:[:index, :destroy]
-  end
-  devise_for :customers, controllers: {
-   sessions: "customers/sessions",
-   registrations: "customers/registrations",
-  }
+  # public:ログイン、ログアウトだけ有効化
+  devise_for :customers
+   # get '/customers/edit/registration' => 'customers/registrations#edit'
+
+
+  # namespace :admins do
+    # resources :customers, only:[:index, :destroy]
+  # end
 
   scope module: :public do
    resources :addresses,except: [:new, :show]
@@ -21,19 +22,21 @@ Rails.application.routes.draw do
 
   scope module: :public do
    resources :orders,only: [:index, :new, :show, :create]
-   post 'orders/confirm'
-   get 'orders/complete'
+   post '/orders/confirm'
+   get '/orders/complete'
   end
 
   scope module: :public do
    resources :cart_items,only: [:index, :update , :destroy, :create]
-   delete 'cart_items/destroy_all'
+   delete '/cart_items/destroy_all'
   end
 
   scope module: :public do
-   resources :customers,only: [:show, :edit, :update]
-   get 'customers/unsubscribe'
-  patch 'customers/withdraw'
+   resource :customers,only: [:update]
+   get '/customers/my_page' => 'customers#show'
+   get '/customers/edit_page' =>'customers#edit'
+   get   '/customers/unsubscribe'
+   patch '/customers/withdraw'
   end
 
   scope module: :public do
