@@ -8,5 +8,5 @@
  <p>電話番号:       <%= @customer.telephone_number %></p>
  <p>メールアドレス: <%= @customer.email %></p>
 </div>
-<h4>配送先　一覧を見る</h4>
+<h4>配送先　<%= link_to '一覧を見る',addresses_path,class: "btn btn-primary" %></h4>
 <h4>注文履歴　一覧を見る</h4>

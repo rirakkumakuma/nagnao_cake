@@ -7,7 +7,6 @@ Rails.application.routes.draw do
    sessions: 'admins/sessions'
   }
 
-  # public:ログイン、ログアウトだけ有効化
   devise_for :customers
    # get '/customers/edit/registration' => 'customers/registrations#edit'
 

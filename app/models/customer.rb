@@ -16,8 +16,8 @@ class Customer < ApplicationRecord
     last_name_kana + first_name_kana
   end
 
-  # def active_for_authentication?
-    # super && (is_deleted == false)
-  # end
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
 end
