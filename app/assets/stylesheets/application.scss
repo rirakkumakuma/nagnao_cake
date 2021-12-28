@@ -16,11 +16,14 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+//  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
 
 header{
+ padding-top: 10px;
  font-family: fantasy,'Noto Sans JP',sans-serif;
- background-color:#CC9966;
+ background-color:#550000;
+
 }
 
 body{
@@ -28,11 +31,11 @@ body{
 }
 
 .footer{
- background-color:#CC9966;
+ background-color:#550000;
  height:50px;
 }
 
-.top-visual{
+.top-visual,.about-visual{
   width: 100%;
   height: 600px;
   background-image: url(sweets2.JPG);
@@ -40,12 +43,18 @@ body{
   background-position: center;
 }
 
-.top-visual-content{
-  width: 60%;
+.top-visual-content,.about-visual-content{
+  width: 100%;
   height: 600px;
-  background-color: rgba(0, 0, 0, 0.5); /* 背景色を半透明の黒にする */
+  background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
   text-align: center;
   padding-top: 105px;
-  margin-left: 300px;
-  color: #fff;
+//   margin-left: 300px;
+  color: black;
 }
+
+.container-log-in-content{
+  background-color:#DEB887;
+}
+
+
