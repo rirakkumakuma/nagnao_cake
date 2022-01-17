@@ -1,8 +1,13 @@
-<h1>商品一覧</h1>
- <div>
-  <% @items.each do |item| %>
-　<p><%= attachment_image_tag item, :image, format: 'jpg', size: '200x200' %></p>
-  <p><%= link_to item.name,item_path(item.id) %></p>
-  <p><%= item.price %>円</p>
-<% end %>
+<div class="container-log-in-content ">
+ </br>
+  <h2 class="text-center font-weight-bold"><ins>商品一覧 (全※件)</ins></h2>
+　  <div class="row my-5">
+     <% @items.each do |item| %>
+     <div class="col-">
+　   <%= attachment_image_tag item, :image, format: 'jpg', size: '250x250', class: 'rounded' %></div>
+　   <div class="col-auto">
+     <%= link_to item.name,item_path(item.id) ,class: "align-self-center" %><br>
+     <%= item.price %>円</div>
+     <% end %>
+    </div>
 </div>
