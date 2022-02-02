@@ -1,5 +1,4 @@
 <div class="container-sign-in-content d-flex flex-column align-items-center justify-content-center" style="height:660px;">
-
  <div class="row mt-3">
   <h2>新規会員登録</h2>
  </div>
@@ -66,17 +65,18 @@
        <th><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %></th>
       </tr>
      </div>
+
      <div class="action">
       <tr>
        <th><%= f.submit "新規登録",class: "btn btn-primary" %></th>
       </tr>
-      </div>
+     </div>
     </table>
     </div>
    </div>
   <% end %>
-  <div class="container-sign-in-content">
+  <div class="container-sign-in-content pb-3">
   <h4 class="text-center"><既に登録済みの方></h4>
-   <div class="text-center"><%=link_to 'こちら', customer_session_path %>からログインしてください。</div>
+   <h5 class="text-center"><ins><%=link_to 'こちら', customer_session_path %></ins>からログインしてください。</h5>
   </div>
 <!--</div>-->

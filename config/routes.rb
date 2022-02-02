@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   scope module: :public do
    resources :orders,only: [:index, :new, :show, :create]
    post '/orders/confirm'
-   get '/orders/complete'
+   get '/orders/complete'=>'orders#complete'
   end
 
   scope module: :public do

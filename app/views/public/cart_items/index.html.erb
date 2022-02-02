@@ -1,2 +1,25 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container-item" style="height:1200px;">
+ </br>
+  <h2 class="text-center font-weight-bold"><ins>ショッピングカート</ins></h2>
+　 <!--<div class="row my-5 d-flex justify-content-center">-->
+　 <table class="table">
+      <thead>
+       <tr>
+       <th>商品名</th>
+       <th>単価（税込）</th>
+       <th>数量</th>
+       <th>小計</th></th>
+       </tr>
+      </thead>
+      <tbody>
+   <% @cart_items.each do |cart_item| %>
+　  <!--<div class="col-auto">-->
+     <td><%= cart_item.item.name %></td>
+     <td><%= cart_item.taxin_price.to_s( :delimited) %>円</td>
+     <td><%= cart_item.amount %></td>
+    <!--</div>-->
+   <!--</div>-->
+   </tbody>
+   <% end %>
+   </div>
+</div>

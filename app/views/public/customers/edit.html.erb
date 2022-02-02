@@ -1,8 +1,10 @@
-<h1><%= @customer.full_name %>さんの会員情報編集</h1>
-
-<%= form_with model: @customer,url: "/admin/customers/#{@customer.id}",local:true do |f| %>
-<table>
-<div class="form-group">
+<div class="container-my-page d-flex flex-column align-items-center justify-content-center" style="height:800x;">
+  <div class="row mt-3">
+   <h2><ins><%= @customer.full_name %>さんの会員情報編集</ins></h2>
+  </div>
+  <%= form_with model: @customer,url: "/admin/customers/#{@customer.id}",local:true do |f| %>
+   <table>
+     <div class="form-group">
       <tr>
        <th><%= f.label :（姓） %></th>
        <th><%= f.text_field :last_name %></th>
@@ -48,8 +50,9 @@
       </tr>
      </div>
     </table>
+    <%= f.submit '変更を保存',class: "btn btn-primary"  %>
 </div>
-<%= f.submit '変更を保存',class: "btn btn-primary"  %>
-<% end %>
-
-<%= link_to '退会する',customers_unsubscribe_path,class: "btn btn-danger" %>
+   <% end %>
+  <div class="container-my-page pb-3">
+   <div class="text-center"><%= link_to '退会する',customers_unsubscribe_path,class: "btn btn-danger" %></div>
+  </div>
