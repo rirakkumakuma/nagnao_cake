@@ -2,11 +2,13 @@ class CartItem < ApplicationRecord
   belongs_to :customer
   belongs_to :item
 
- def taxin_price
-    (item.price * 1.10).round
- end
+# 小計金額の計算
+def subtotal
+  item.taxin_price * amount
+end
+
   # 消費税込みの合計金額（税込価格X数量）
-# def sum_of_price
-  # item.taxin_price * quantity
-# end
+def total
+  item.taxin_price * amount
+end
 end

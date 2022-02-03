@@ -8,7 +8,7 @@
      <p>商品名:<%= @item.name %></p>
      <p>商品説明:<%= @item.introduction %></p>
      <p>税抜き価格:<%= @item.price.to_s(:delimited) %>円</br>
-　      (税込価格): (<%= @item.taxin_price.to_s( :delimited) %>円)</p>
+　      (税込価格): (<%= @item.taxin_price.to_s(:delimited) %>円)</p>
 　 </br>
 　 数量を選択してください</br>
 　 <%= form_with model: @cart_item,url: '/cart_items',local:true do |f| %>

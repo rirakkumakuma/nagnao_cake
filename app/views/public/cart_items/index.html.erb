@@ -13,13 +13,16 @@
       </thead>
       <tbody>
    <% @cart_items.each do |cart_item| %>
-　  <!--<div class="col-auto">-->
+　 <tr> <!--<div class="col-auto">-->
      <td><%= cart_item.item.name %></td>
-     <td><%= cart_item.taxin_price.to_s( :delimited) %>円</td>
+     <td><%= cart_item.item.taxin_price.to_s( :delimited) %>円</td>
      <td><%= cart_item.amount %></td>
-    <!--</div>-->
+     <td><%= cart_item.subtotal %></td>
+    <!--</div>--></tr>
    <!--</div>-->
-   </tbody>
    <% end %>
-   </div>
+<td>合計金額<%= @total.to_s(:delimited) %>円</td>
+   </tbody>
+</table>
+   <!--</div>-->
 </div>
