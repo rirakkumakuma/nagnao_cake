@@ -19,6 +19,6 @@ class Public::OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:name, :price)
+    params.require(:order).permit(:payment_method)
   end
 end
