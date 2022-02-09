@@ -1,12 +1,13 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
+    @customer = current_customer
   end
 
   def create
-    @order = Order.new(order_params)
-    @order.save
-    redirect_to cart_items_path
+  end
+
+  def confirm
   end
 
   def index
