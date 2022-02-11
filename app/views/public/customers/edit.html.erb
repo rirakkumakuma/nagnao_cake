@@ -1,5 +1,5 @@
-<div class="container-my-page d-flex flex-column align-items-center justify-content-center" style="height:800x;">
-  <div class="row mt-3">
+<div class="container-my-page d-flex flex-column align-items-center justify-content-center" style="height:auto;">
+  <div class="row mt-5">
    <h2><ins><%= @customer.full_name %>さんの会員情報編集</ins></h2>
   </div>
   <%= form_with model: @customer,url: "/admin/customers/#{@customer.id}",local:true do |f| %>
@@ -53,6 +53,6 @@
     <%= f.submit '変更を保存',class: "btn btn-primary"  %>
 </div>
    <% end %>
-  <div class="container-my-page pb-3">
-   <div class="text-center"><%= link_to '退会する',customers_unsubscribe_path,class: "btn btn-danger" %></div>
+<div class="container-my-page pb-3">
+ <div class="text-center"><%= link_to '退会する',customers_unsubscribe_path,class: "btn btn-danger" %></div>
   </div>

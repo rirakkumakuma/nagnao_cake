@@ -10,11 +10,6 @@ Rails.application.routes.draw do
   devise_for :customers
    # get '/customers/edit/registration' => 'customers/registrations#edit'
 
-
-  # namespace :admins do
-    # resources :customers, only:[:index, :destroy]
-  # end
-
   scope module: :public do
    resources :addresses,except: [:new, :show]
   end
