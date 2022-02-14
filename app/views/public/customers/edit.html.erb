@@ -2,7 +2,7 @@
   <div class="row mt-5">
    <h2><ins><%= @customer.full_name %>さんの会員情報編集</ins></h2>
   </div>
-  <%= form_with model: @customer,url: "/admin/customers/#{@customer.id}",local:true do |f| %>
+  <%= form_with model: @customer,url: "/customers/update",local:true do |f| %>
    <table>
      <div class="form-group">
       <tr>

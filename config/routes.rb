@@ -3,12 +3,16 @@ Rails.application.routes.draw do
   get '/admin' => 'admin/homes#top'
   get '/about' => 'public/homes#about'
 
+
+  devise_for :customers,skip: [:passwords],controllers: {
+  registrations: "customers/registrations",
+  sessions: 'customers/sessions'
+}
+
   devise_for :admins, only: [:sign_in, :sign_out, :session],controllers: {
    sessions: 'admins/sessions'
   }
 
-  devise_for :customers
-   # get '/customers/edit/registration' => 'customers/registrations#edit'
 
   scope module: :public do
    resources :addresses,except: [:new, :show]
@@ -31,7 +35,10 @@ Rails.application.routes.draw do
    get '/customers/edit_page' =>'customers#edit'
    get   '/customers/unsubscribe'
    patch '/customers/withdraw'
-   resource :customers,only: [:update]
+   patch '/customers/update'
+   put '/customers/update'
+
+   # resource :customers,only: [:update]
 
   end
 

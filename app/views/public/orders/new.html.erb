@@ -1,7 +1,7 @@
    <h2 class="text-center font-weight-bold"><ins>注文情報入力</ins></h2>
 
   <div class="container d-flex align-items-center justify-content-center" style="height:auto;">
-  <div class="col-md-5 d-flex flex-column align-item" style="height:500px;">
+  <div class="col-md-5" style="height:600px;">
   <h4><ins>支払方法</ins></h4>
   <%= form_with model:@order,url:'/orders/new',local:true do |f| %>
   <%= f.radio_button :payment_method, "credit_card" %>
@@ -10,17 +10,28 @@
   <%= f.radio_button :payment_method, "transfer" %>
   <%= f.label :payment_method, "銀行振込" %>
   </div>
+
   <div class="col-md-7">
   <h4 class="address mt-4"><ins>お届け先</ins></h4></br>
-  <h5>ご自身の住所</h5>
+
+  <h5><%= f.radio_button :select_address, "0" %>
+  <%= f.label :select_address_0, "ご自身の住所" %></h5>
   <%= @customer.postal_code %>
   <%= @customer.address %>
-  <%= @customer. full_name %></br>
+  <%= @customer.full_name %></br>
   </br>
-    <h5 class="exist-address mt-4">登録済み住所から選択</h5>
-  <%= f.select :id, options_from_collection_for_select(Address.all, :id, :full_address) %>
-  <% end %>
-  <h5 class="new-address mt-5">新しいお届け先</h5>
+
+  <h5 class="exist-address mt-4">
+   <%= f.radio_button :select_address, "1" %>
+   <%= f.label :select_address_1, "登録済み住所から選択" %>
+  </h5>
+  <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :full_address) %>
+
+  <h5 class="new-address mt-5">
+   <%= f.radio_button :select_address, "2" %>
+   <%= f.label :select_address_2, "新しいお届け先" %>
+  </h5>
+　<% end %>
   <%= form_with model: @address,url: "/addresses",local: true do |f| %>
        <%= f.label :郵便番号（ハイフンなし） %>
        <%= f.text_field :postal_code,autofocus: true, style: "width:20%",placeholder:"0000000", class: 'form-control' %>
