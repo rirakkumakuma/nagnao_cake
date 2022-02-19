@@ -1,8 +1,8 @@
 class Public::CartItemsController < ApplicationController
   def create
     @cart_item = CartItem.new(cart_item_params)
-    if CartItem.find_by(item_id:@cart_item.item_id,customer_id:@cart_item.customer_id)
-     @cart_item_exist = CartItem.find_by(item_id:@cart_item.item_id,customer_id:@cart_item.customer_id)
+    if CartItem.find_by(item_id:@cart_item.item_id, customer_id:@cart_item.customer_id)
+     @cart_item_exist = CartItem.find_by(item_id:@cart_item.item_id, customer_id:@cart_item.customer_id)
      @cart_item_exist.update(amount:@cart_item_exist.amount + @cart_item.amount)
      redirect_to cart_items_path
     else

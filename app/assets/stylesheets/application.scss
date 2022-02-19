@@ -34,7 +34,7 @@ body{
  // height:50px;
 // }
 
-.top-visual,.about-visual,.complete-visual{
+.top-visual,.about-visual{
   width: 100%;
   height: 100%;
   background-image: url(sweets2.JPG);
@@ -48,7 +48,23 @@ body{
   background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
   text-align: center;
   padding-top: 105px;
-//   margin-left: 300px;
+  color: black;
+}
+
+.complete-visual{
+  width: 100%;
+  height: 100%;
+  background-image: url(フルーツケーキ.JPG);
+  background-size: cover;
+  background-position: center;
+}
+
+.complete-content{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
+  text-align: center;
+  padding-top: 300px;
   color: black;
 }
 

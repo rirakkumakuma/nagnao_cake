@@ -8,6 +8,15 @@ class Customer < ApplicationRecord
   has_many :orders,dependent: :destroy
   has_many :addresses,dependent: :destroy
 
+  validates :last_name, :first_name, :last_name_kana, :first_name_kana,
+    length:{ minimum: 1, maximum: 100 },presence: true
+  validates :postal_code,
+    length:{ is:7 },presence: true
+  validates :address,
+    length:{ maximum:200 },presence: true
+  validates :telephone_number,
+    length:{ in: 10..11 },presence: true
+
   def full_name
     last_name + first_name
   end
@@ -19,5 +28,7 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
+
+
 
 end

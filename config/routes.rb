@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-   post '/orders/confirm'
+   post '/orders/confirm'=>'orders#confirm'
    get '/orders/complete'=>'orders#complete'
    resources :orders,only: [:index, :new, :show, :create]
 
