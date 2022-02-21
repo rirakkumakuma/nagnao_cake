@@ -1,13 +1,10 @@
-<h1>商品詳細</h1>
-<div>
-  <p><%= attachment_image_tag @item, :image, format: 'jpg', size: '400x400' %></p>
-  <p>商品名:<%= @item.name %></p>
-
-  <p>商品説明:<%= @item.introduction %></p>
-  <p>ジャンル</p>
-  <p>税抜き価格  <%= @item.price.to_s(:delimited) %>(<%= @item.taxin_price.to_s(:delimited) %>）円
-  <br/>(税込価格)
-
-  <br/><%= link_to "編集する",edit_admin_item_path(@item.id),class: "btn btn-success" %></td>
-</tr>
+<h3 class="text-center font-weight-bold pt-5">商品詳細</h3>
+ <div class="container d-flex align-items-center pt-5" style="width:70%" >
+  <%= attachment_image_tag @item, :image, format: 'jpg', size: '400x400' %>
+  商品名:<%= @item.name %></br></br>
+  商品説明:<%= @item.introduction %></br></br>
+  税抜き価格 (税込価格):<%= @item.price.to_s(:delimited) %>(<%= @item.taxin_price.to_s(:delimited) %>）円
+</div>
+<div class="btn">
+  <%= link_to "編集する",edit_admin_item_path(@item.id),class: "btn btn-success" %>
 </div>

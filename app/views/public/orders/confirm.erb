@@ -24,7 +24,7 @@
   </div>
  <div class="row pt-2">
  商品合計:<%= @subtotal.to_s(:delimited) %>円</br>
- 送 料：800円</br>
+ 送 料：<%= @order.shipping_cost %>円</br>
  請求金額:<%= @order.total_payment.to_s(:delimited) %>円
   </div>
   <div class="row mt-4">
@@ -41,6 +41,7 @@
 <%= f.hidden_field :postal_code %>
 <%= f.hidden_field :address %>
 <%= f.hidden_field :name %>
+<%= f.hidden_field :item_id %>
 <%= f.hidden_field  :payment_method %>
 <%= f.hidden_field  :total_payment %>
 <%= f.submit "注文を確定する", class: "btn btn-success" %>
