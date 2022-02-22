@@ -5,6 +5,8 @@
   支払い金額:<%= order.total_payment %>円</br>
   支払い方法:<%= order.payment_method_i18n %>
   <%= link_to "注文詳細",order_path(order.id),class:"btn btn-sm btn-primary" %></br></br>
-
-<% end %>
+  <% end %>
+  <% @order_details.each do |order_detail| %>
+  <%= order_detail.item.name %>
+  <% end %>
 </div>
