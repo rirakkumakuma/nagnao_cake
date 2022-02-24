@@ -1,2 +1,16 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+  <h3 class="text-center font-weight-bold"><ins>注文履歴詳細</ins></h3>
+  <table class="table  table-bordered" style="width:50%">
+    <tr><th>注文日時</th><td><%= @order.updated_at.strftime('%Y/%m/%d %H:%M') %></td></tr>
+
+    <tr><th>配送先</th><td><%= @order.postal_code %></br>
+                           <%= @order.address %></br>
+                           <%= @order.name %></td></tr>
+   <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
+  </table>
+
+  <table class="table  table-bordered" style="width:50%">
+    <tr><th>商品合計</th><td>円</td></tr>
+    <tr><th>送料</th><td><%= @order.shipping_cost %>円</td></tr>
+    <tr><th>ご請求額</th><td><%= @order.total_payment.to_s(:delimited) %>円</td></tr>
+  </table>
+

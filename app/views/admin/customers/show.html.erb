@@ -1,13 +1,16 @@
 <h3 class="text-center font-weight-bold pt-5"><%= @customer.full_name %>さんの会員詳細</h3>
  <div class="container d-flex align-items-center justify-content-center pt-5">
-<table border="1" width="60%">
- <tr align="center"> <td>会員ID</td>     <td><%= @customer.id %></td></tr>
-  <tr align="center"><td>氏名</td> 　         <td> <%= @customer.full_name %></td></tr>
-  <tr align="center"><td>フリガナ</td> 　      <td><%= @customer.full_name_kana %></td></tr>
-  <tr align="center"><td>郵便番号</td> 　     <td> <%= @customer.postal_code %></td></tr>
-  <tr align="center"><td>住所</td> 　          <td><%= @customer.address %></td></tr>
-  <tr align="center"><td>電話番号</td>         <td><%= @customer.telephone_number %></td></tr>
-  <tr align="center"><td>メールアドレス</td>  <td><%= @customer.email %></td></tr>
-  <tr align="center"><td>会員ステータス</td> <td><%= @customer.is_deleted %></td></tr>
-</table>
+  <table border="1" align="left" width="60%">
+ 　<tr align="center"> <td>会員ID</td>     <td><%= @customer.id %></td></tr>
+   <tr align="center"><td>氏名</td> 　         <td> <%= @customer.full_name %></td></tr>
+   <tr align="center"><td>フリガナ</td> 　      <td><%= @customer.full_name_kana %></td></tr>
+   <tr align="center"><td>郵便番号</td> 　     <td> <%= @customer.postal_code %></td></tr>
+   <tr align="center"><td>住所</td> 　          <td><%= @customer.address %></td></tr>
+   <tr align="center"><td>電話番号</td>         <td><%= @customer.telephone_number %></td></tr>
+   <tr align="center"><td>メールアドレス</td>  <td><%= @customer.email %></td></tr>
+   <tr align="center"><td>会員ステータス</td> <td><%= @customer.is_deleted %></td></tr>
+ </table>
+</div>
+<div class="btn pt-5">
+ <%= link_to "編集する",edit_admin_customer_path(@customer.id),class: "btn btn-success" %>
 </div>
