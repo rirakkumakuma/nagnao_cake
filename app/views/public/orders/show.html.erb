@@ -9,8 +9,26 @@
   </table>
 
   <table class="table  table-bordered" style="width:50%">
-    <tr><th>商品合計</th><td>円</td></tr>
+    <tr><th>商品合計</th><td><%= @order.order_details.sum(&:subtotal) %>円</td></tr>
     <tr><th>送料</th><td><%= @order.shipping_cost %>円</td></tr>
     <tr><th>ご請求額</th><td><%= @order.total_payment.to_s(:delimited) %>円</td></tr>
   </table>
 
+  <table class="table  table-bordered" style="width:50%">
+    <thead>
+   <tr>
+    <th>商品</th>
+    <th>単価（税込）</th>
+    <th>個数</th>
+    <th>小計</th>
+   </tr>
+  </thead>
+  <% @order.order_details.includes(:item).each do |order_detail| %>
+   <tr>
+    <td><%= order_detail.item.name %></td>
+    <td><%= order_detail.item.taxin_price %></td>
+    <td><%= order_detail.amount %></td>
+    <td><%= order_detail.item.taxin_price * order_detail.amount %></td>
+　<% end %>
+　</tr>
+　</table>
