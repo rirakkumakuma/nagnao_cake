@@ -5,7 +5,7 @@
      <% @items.each do |item| %>
       <div style="width:400px;height:400px;margin:5px;" class="rounded border border-secondary">
        <div class="col d-flex">
-　      <%= attachment_image_tag item, :image, format: 'jpg', size: '250x250', class: 'rounded' %>
+　      <%= link_to attachment_image_tag(item, :image, format: 'jpg', size: '250x250', class: 'rounded'),item_path(item.id) %>
 　     </div>
 　     <div class="col-auto">
         <ins><%= link_to item.name,item_path(item.id) ,class: "align-self-center" %></ins></br>

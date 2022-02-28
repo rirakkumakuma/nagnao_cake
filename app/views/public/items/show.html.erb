@@ -1,10 +1,10 @@
+<h2 class="text-center font-weight-bold pt-3"><ins>商品詳細</ins></h2>
 <div class="container-item pb-4" style="height:auto;"></br>
- <h2 class="text-center font-weight-bold"><ins>商品詳細</ins></h2>
-　<div class="row">
-　 <div class="col-6">
+<div class="row">
+ <div class="col pl-5 ml-5">
    <%= attachment_image_tag @item, :image, format: 'jpg', size: '400x400', class:'rounded' %>
-   </div>
-    <div class="col-4">
+ </div>
+ <div class="col pr-5 mr-5">
      <p>商品名:<%= @item.name %></p>
      <p>商品説明:<%= @item.introduction %></p>
      <p>税抜き価格:<%= @item.price.to_s(:delimited) %>円</br>
@@ -17,7 +17,6 @@
 　 <%= f.select :amount, *[1..10] %>
 　 <%= f.submit 'カートに入れる',class: "btn btn-primary" %>
    <% end %>
-  </diiv>
- </div>
 </div>
-
+</div>
+</div>

@@ -38,6 +38,10 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def after_sign_up_path_for(_resource)
+    customers_my_page_path
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

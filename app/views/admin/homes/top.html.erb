@@ -1,1 +1,26 @@
-<h1>注文履歴一覧</h1>
+  <h3 class="text-center font-weight-bold"><ins>注文履歴一覧</ins></h3>
+   <div class="container d-flex align-items-center pt-5" style="width:600px;">
+    <table class="table table-bordered">
+     <thead>
+   　  <tr>
+       <th>購入日時</th>
+       <th>購入者</th>
+       <th>注文個数</th>
+      </tr>
+     </thead>
+     <% @orders.each do |order| %>
+     <tr>
+      <td><%= order.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+      <td><%= order.customer.full_name %></td>
+      <td>
+       <% total_amount = 0 %>
+       <% order.order_details.each do |order_detail| %>
+        <% total_amount += order_detail.amount %>
+       <% end %>
+       <%= total_amount %>
+      </td>
+      <td><%= link_to "表示する",admin_order_path(order.id),class:"btn btn-sm btn-primary" %></td>
+  　<% end %>
+   </tr>
+　</table>
+</div>

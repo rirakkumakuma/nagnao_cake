@@ -1,34 +1,42 @@
   <h3 class="text-center font-weight-bold"><ins>注文履歴詳細</ins></h3>
-  <table class="table  table-bordered" style="width:50%">
-    <tr><th>注文日時</th><td><%= @order.updated_at.strftime('%Y/%m/%d %H:%M') %></td></tr>
-
-    <tr><th>配送先</th><td><%= @order.postal_code %></br>
+   <h5 class="text-center mt-4">注文情報</h5>
+   <div class="container d-flex align-items-center" style="width:50%">
+    <table class="table  table-bordered">
+     <tr><th>注文日時</th><td><%= @order.updated_at.strftime('%Y/%m/%d %H:%M') %></td></tr>
+     <tr><th>配送先</th><td><%= @order.postal_code %></br>
                            <%= @order.address %></br>
                            <%= @order.name %></td></tr>
-   <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
-  </table>
+     <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
+    </table>
+   </div>
 
-  <table class="table  table-bordered" style="width:50%">
-    <tr><th>商品合計</th><td><%= @order.order_details.sum(&:subtotal) %>円</td></tr>
-    <tr><th>送料</th><td><%= @order.shipping_cost %>円</td></tr>
-    <tr><th>ご請求額</th><td><%= @order.total_payment.to_s(:delimited) %>円</td></tr>
-  </table>
+   <h5 class="text-center mt-4">請求情報</h5>
+    <div class="container d-flex align-items-center" style="width:50%">
+    <table class="table  table-bordered">
+     <tr><th>商品合計</th><td><%= @order.order_details.sum(&:subtotal) %>円</td></tr>
+     <tr><th>送料</th><td><%= @order.shipping_cost %>円</td></tr>
+     <tr><th>ご請求額</th><td><%= @order.total_payment.to_s(:delimited) %>円</td></tr>
+    </table>
+    </div>
 
-  <table class="table  table-bordered" style="width:50%">
-    <thead>
-   <tr>
-    <th>商品</th>
-    <th>単価（税込）</th>
-    <th>個数</th>
-    <th>小計</th>
-   </tr>
-  </thead>
-  <% @order.order_details.includes(:item).each do |order_detail| %>
-   <tr>
-    <td><%= order_detail.item.name %></td>
-    <td><%= order_detail.item.taxin_price %></td>
-    <td><%= order_detail.amount %></td>
-    <td><%= order_detail.item.taxin_price * order_detail.amount %></td>
-　<% end %>
-　</tr>
-　</table>
+   <h5 class="text-center mt-4">注文内容</h5>
+    <div class="container d-flex align-items-center" style="width:50%">
+    <table class="table  table-bordered">
+     <thead>
+      <tr>
+      <th>商品</th>
+      <th>単価（税込）</th>
+      <th>個数</th>
+      <th>小計</th>
+     </tr>
+    </thead>
+    <% @order.order_details.includes(:item).each do |order_detail| %>
+     <tr>
+      <td><%= order_detail.item.name %></td>
+      <td><%= order_detail.item.taxin_price %></td>
+      <td><%= order_detail.amount %></td>
+      <td><%= order_detail.item.taxin_price * order_detail.amount %></td>
+　  <% end %>
+　   </tr>
+　  </table>
+　 </div>

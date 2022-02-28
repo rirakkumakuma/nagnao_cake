@@ -1,7 +1,7 @@
 class Public::AddressesController < ApplicationController
   def index
     @address = Address.new
-    @addresses = Address.all
+    @addresses = current_customer.addresses.all
   end
 
   def create
@@ -12,7 +12,7 @@ class Public::AddressesController < ApplicationController
   end
 
   def edit
-    @address =Address.find(params[:id])
+    @address = Address.find(params[:id])
   end
 
   def update

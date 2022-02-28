@@ -1,2 +1,44 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+  <h3 class="text-center font-weight-bold"><ins>注文履歴詳細</ins></h3>
+
+<!--注文情報-->
+   <div class="container d-flex align-items-center pt-5" style="width:600px;">
+    <table class="table  table-bordered">
+      <tr><th>購入者</th><td><%= @order.customer.full_name %></td></tr>
+     <tr><th>注文日時</th><td><%= @order.updated_at.strftime('%Y/%m/%d %H:%M') %></td></tr>
+     <tr><th>配送先</th><td><%= @order.postal_code %></br>
+                           <%= @order.address %></br>
+                           <%= @order.name %></td></tr>
+     <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
+    </table>
+   </div>
+
+<!--商品情報-->
+    <div class="container d-flex align-items-center" style="width:600px;">
+    <table class="table  table-bordered">
+     <thead>
+      <tr>
+      <th>商品</th>
+      <th>単価（税込）</th>
+      <th>個数</th>
+      <th>小計</th>
+     </tr>
+    </thead>
+    <% @order.order_details.includes(:item).each do |order_detail| %>
+     <tr>
+      <td><%= order_detail.item.name %></td>
+      <td><%= order_detail.item.taxin_price %></td>
+      <td><%= order_detail.amount %></td>
+      <td><%= order_detail.item.taxin_price * order_detail.amount %></td>
+　  <% end %>
+　   </tr>
+　  </table>
+　 </div>
+
+<!--請求情報-->
+    <div class="container d-flex align-items-center" style="width:600px;">
+    <table class="table  table-bordered">
+     <tr><th>商品合計</th><td><%= @order.order_details.sum(&:subtotal).to_s(:delimited) %>円</td></tr>
+     <tr><th>送料</th><td><%= @order.shipping_cost %>円</td></tr>
+     <tr><th>請求金額合計</th><td><%= @order.total_payment.to_s(:delimited) %>円</td></tr>
+    </table>
+    </div>
