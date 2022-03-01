@@ -16,6 +16,9 @@ class Customer < ApplicationRecord
     length:{ maximum:200 },presence: true
   validates :telephone_number,
     length:{ in: 10..11 },presence: true
+  validates :email,
+    presence: true
+
 
   def full_name
     last_name + first_name

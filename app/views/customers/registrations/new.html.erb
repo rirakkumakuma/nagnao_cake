@@ -1,3 +1,4 @@
+<div class="alert　hidden alert-primary text-center"><%= flash[:notice] %></div>
 <h2 class="text-center mt-3">新規会員登録</h2>
 <div class="container-sign-in-content d-flex flex-column align-items-center justify-content-center" style="height:660px;">
  <%= form_with model:@customer,url: customer_registration_path,local: true do |f| %>

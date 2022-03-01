@@ -1,6 +1,6 @@
 <h3 class="text-center font-weight-bold pt-5">会員一覧</h3>
- <div class="container d-flex align-items-center justify-content-center pt-5" style="height:auto; width:auto;">
-  <table class="table">
+<div class="container d-flex align-items-center justify-content-center pt-5" style="height:auto; width:auto;">
+ <table class="table">
    <tr>
     <th>会員ID</th>
     <th>氏名</th>
@@ -12,7 +12,12 @@
 　 <td><%= customer.id %></td>
    <td><%= link_to customer.full_name,admin_customer_path(customer.id) %></td>
    <td><%= customer.email %></td>
-   <td><%= customer.is_deleted %></td>
+   <% if customer.is_deleted == true %>
+   <td>退会済</td>
+   <% else %>
+   <td>有効</td>
+   <% end %>
   </tr>
  <% end %>
-</table>
+ </table>
+</div>
