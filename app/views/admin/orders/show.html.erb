@@ -3,17 +3,17 @@
 <!--注文情報-->
    <div class="container d-flex align-items-center pt-5" style="width:600px;">
     <table class="table  table-bordered">
-      <tr><th>購入者</th><td><%= @order.customer.full_name %></td></tr>
+     <tr><th>購入者</th><td>  <%= @order.customer.full_name %></td></tr>
      <tr><th>注文日時</th><td><%= @order.updated_at.strftime('%Y/%m/%d %H:%M') %></td></tr>
-     <tr><th>配送先</th><td><%= @order.postal_code %></br>
-                           <%= @order.address %></br>
-                           <%= @order.name %></td></tr>
+     <tr><th>配送先</th><td>  <%= @order.postal_code %><br>
+                              <%= @order.address %><br>
+                              <%= @order.name %></td></tr>
      <tr><th>支払方法</th><td><%= @order.payment_method_i18n %></td></tr>
     </table>
    </div>
 
 <!--商品情報-->
-    <div class="container d-flex align-items-center" style="width:600px;">
+   <div class="container d-flex align-items-center" style="width:600px;">
     <table class="table  table-bordered">
      <thead>
       <tr>
@@ -35,10 +35,10 @@
 　 </div>
 
 <!--請求情報-->
-    <div class="container d-flex align-items-center" style="width:600px;">
+   <div class="container d-flex align-items-center" style="width:600px;">
     <table class="table  table-bordered">
      <tr><th>商品合計</th><td><%= @order.order_details.sum(&:subtotal).to_s(:delimited) %>円</td></tr>
      <tr><th>送料</th><td><%= @order.shipping_cost %>円</td></tr>
      <tr><th>請求金額合計</th><td><%= @order.total_payment.to_s(:delimited) %>円</td></tr>
     </table>
-    </div>
+   </div>

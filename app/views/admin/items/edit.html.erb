@@ -1,15 +1,27 @@
 <h3 class="text-center font-weight-bold pt-5">商品編集</h3>
- <div class="container d-flex align-items-center pt-5" style="height:auto; width:auto;">
- <%= form_with model: @item,url: "/admin/items/#{@item.id}",local:true do |f| %>
- <h4>商品画像</h4>
-  <%= attachment_image_tag @item, :image, format: 'jpg', size: '200x200',fallback: "no_image.jpg" %>
-  <%= f.attachment_field :image %>
- <h4>商品名</h4>
-  <%= f.text_field :name %>
- <h4>商品説明</h4>
-  <%= f.text_area :introduction %>
- <h4>税抜き価格</h4>
-  <%= f.number_field :price %>円</br></br>
-  <%= f.submit '変更を保存',class:"btn btn-success" %>
- <% end %>
+ <div class="container d-flex align-items-center pt-5" style="height:auto; width:900px;">
+  <%= form_with model: @item,url: "/admin/items/#{@item.id}",local:true do |f| %>
+   <div class="form-group">
+    <%= f.label :商品画像%>
+    <%= attachment_image_tag @item, :image, format: 'jpg', size: '200x200',fallback: "no_image.jpg" %>
+    <%= f.attachment_field :image %>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :商品名%>
+    <%= f.text_field :name %>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :商品説明%>
+    <%= f.text_area :introduction %>
+   </div>
+
+   <div class="form-group">
+    <%= f.label :税抜き価格%>
+    <%= f.number_field :price %>円
+   </div>
+
+    <%= f.submit '変更を保存',class:"btn btn-success" %>
+    <% end %>
 </div>

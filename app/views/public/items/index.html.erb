@@ -1,17 +1,16 @@
 <div class="container-item" style="height:auto;">
- </br>
-  <h2 class="text-center font-weight-bold"><ins>商品一覧 (全<%= Item.count %>件)</ins></h2>
-　  <div class="row my-5 d-flex justify-content-center">
-     <% @items.each do |item| %>
-      <div style="width:400px;height:400px;margin:5px;" class="rounded border border-secondary">
-       <div class="col d-flex">
-　      <%= link_to attachment_image_tag(item, :image, format: 'jpg', size: '250x250', class: 'rounded'),item_path(item.id) %>
-　     </div>
-　     <div class="col-auto">
-        <ins><%= link_to item.name,item_path(item.id) ,class: "align-self-center" %></ins></br>
-             <%= item.price.to_s( :delimited) %>円(税抜)
-       </div>
-      </div>
-     <% end %>
+  <h2 class="text-center font-weight-bold pt-5"><ins>商品一覧 (全<%= Item.count %>件)</ins></h2>
+　<div class="row my-3 d-flex justify-content-center">
+   <% @items.each do |item| %>
+   <div class="rounded border border-secondary" style="width:400px;height:400px;margin:5px;" >
+    <div class="col d-flex">
+　  <%= link_to attachment_image_tag(item, :image, format: 'jpg', size: '250x250', class: 'rounded'),item_path(item.id) %>
+　  </div>
+　  <div class="col-auto">
+     <ins><%= link_to item.name,item_path(item.id) ,class: "align-self-center" %></ins></br>
+          <%= item.price.to_s( :delimited) %>円(税抜)
     </div>
+   </div>
+   <% end %>
+  </div>
 </div>

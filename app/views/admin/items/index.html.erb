@@ -1,5 +1,5 @@
 <h3 class="text-center font-weight-bold pt-5">商品一覧</h3>
- <div class="container d-flex align-items-center justify-content-center pt-5" style="height:auto; width:60%;">
+<div class="container d-flex align-items-center justify-content-center pt-5" style="height:auto; width:60%;">
   <table class="table">
    <tr>
     <th>商品ID</th>
@@ -10,10 +10,10 @@
    <tr>
 　  <td><%= item.id %></td>
     <td><%= link_to item.name,admin_item_path(item.id) %></td>
-    <td><%= item.price %>円</td>
+    <td><%= item.price.to_s(:delimited) %>円</td>
    </tr>
   <% end %>
- </table>
+  </table>
 </div>
 <div class="btn pt-5 ml-5">
  <%= link_to "商品新規登録",new_admin_item_path,class: "btn btn-success" %>

@@ -1,22 +1,24 @@
 <h2 class="text-center font-weight-bold pt-3"><ins>商品詳細</ins></h2>
-<div class="container-item pb-4" style="height:auto;"></br>
-<div class="row">
- <div class="col pl-5 ml-5">
+<div class="container-item pb-4" style="height:auto;"><br>
+ <div class="row">
+  <div class="col pl-5 ml-5">
    <%= attachment_image_tag @item, :image, format: 'jpg', size: '400x400', class:'rounded' %>
- </div>
- <div class="col pr-5 mr-5">
-     <p>商品名:<%= @item.name %></p>
-     <p>商品説明:<%= @item.introduction %></p>
-     <p>税抜き価格:<%= @item.price.to_s(:delimited) %>円</br>
-　      (税込価格): (<%= @item.taxin_price.to_s(:delimited) %>円)</p>
-　 </br>
-　 数量を選択してください</br>
+  </div>
+  <div class="col pr-5 mr-5">
+   <p>商品名:<%= @item.name %></p>
+   <p>商品説明:<%= @item.introduction %></p>
+   <p>税抜き価格:<%= @item.price.to_s(:delimited) %>円<br>
+　   (税込価格): (<%= @item.taxin_price.to_s(:delimited) %>円)</p><br>
+
+　 <% if customer_signed_in? %>
+　 数量を選択してください<br>
 　 <%= form_with model:@cart_item,url: '/cart_items',local:true do |f| %>
 　 <%= f.hidden_field :item_id, value: @item.id %>
 　 <%= f.hidden_field :customer_id, value: current_customer.id %>
 　 <%= f.select :amount, *[1..10] %>
 　 <%= f.submit 'カートに入れる',class: "btn btn-primary" %>
    <% end %>
-</div>
-</div>
+   <% end %>
+  </div>
+ </div>
 </div>

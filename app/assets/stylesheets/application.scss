@@ -34,7 +34,15 @@ body{
  // height:50px;
 // }
 
-.top-visual,.about-visual{
+.top-visual{
+  width: 100%;
+  height: 350px;
+  background-image: url(sweets2.JPG);
+  background-size: cover;
+  background-position: center;
+}
+
+.about-visual{
   width: 100%;
   height: 100%;
   background-image: url(sweets2.JPG);
@@ -42,7 +50,17 @@ body{
   background-position: center;
 }
 
-.top-visual-content,.about-visual-content,.complete-content{
+.top-visual-content{
+  width: 100%;
+  height: 350px;
+  background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
+  text-align: center;
+  padding-top: 50px;
+  color: black;
+}
+
+
+.about-visual-content,.complete-content{
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.5); /* 背景色を半透明にする */
